@@ -1,26 +1,25 @@
-// script.js
-
 // Função para carregar os cards do localStorage
 function loadCards() {
     const cardContainer = document.getElementById('cardContainer');
     cardContainer.innerHTML = '';
     const cards = JSON.parse(localStorage.getItem('cards')) || [];
     cards.forEach((card, index) => {
-        createCard(card.siteLink, card.imageLink, index);
+        createCard(card.name, card.siteLink, card.imageLink, index);
     });
 }
 
 // Função para criar um card
-function createCard(siteLink, imageLink, index) {
+function createCard(name, siteLink, imageLink, index) {
     const cardContainer = document.getElementById('cardContainer');
     const card = document.createElement('div');
-    card.className = 'col-sm-12 col-md-6 col-lg-4 d-flex align-items-stretch';
+    card.className = 'col-sm-12 col-md-6 col-lg-4 d-flex align-items-stretch mb-4'; // Adiciona a classe mb-4 para margem inferior
     card.innerHTML = `
         <div class="card position-relative w-100">
             <button class="delete-btn" onclick="deleteCard(${index})">&times;</button>
             <img src="${imageLink}" class="card-img-top" alt="Image">
-            <div class="card-body">
-                <a href="${siteLink}" target="_blank" class="btn btn-primary btn-block">Visitar Site</a>
+            <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                <h5 class="card-title text-center">${name}</h5>
+                <a href="${siteLink}" target="_blank" class="btn btn-primary btn-block mt-3">Visitar Site</a>
             </div>
         </div>
     `;
@@ -41,14 +40,15 @@ window.onload = loadCards;
 document.getElementById('cardForm').addEventListener('submit', function(e) {
     e.preventDefault();
 
+    const name = document.getElementById('cardName').value;
     const siteLink = document.getElementById('siteLink').value;
     const imageLink = document.getElementById('imageLink').value;
 
     const cards = JSON.parse(localStorage.getItem('cards')) || [];
-    cards.push({ siteLink, imageLink });
+    cards.push({ name, siteLink, imageLink });
     localStorage.setItem('cards', JSON.stringify(cards));
 
-    createCard(siteLink, imageLink, cards.length - 1);
+    createCard(name, siteLink, imageLink, cards.length - 1);
 
     // Limpar o formulário
     document.getElementById('cardForm').reset();

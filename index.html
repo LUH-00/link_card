@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LINK SR.NILSON</title>
+    <title>ORGANIZADOR DE ABAS</title>
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="STYLE/style.css">
+    <link rel="icon" href="img/ABAS.webp" type="image/x-icon">
+
 </head>
-<body >
+<body>
     <div class="container mt-5">
         <h1 class="text-center mb-4"></h1>
         <div class="row mb-4">
@@ -20,21 +22,32 @@
             <div class="col-md-6 offset-md-3">
                 <form id="cardForm">
                     <div class="form-group">
-                        <label for="siteLink" placeholder="Link do Site"></label>
+                        <label for="cardName" place></label>
+                        <input type="text" class="form-control " id="cardName" placeholder="Digite o nome do card" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="siteLink"></label>
                         <input type="url" class="form-control" id="siteLink" placeholder="Digite o link do site" required>
                     </div>
                     <div class="form-group">
-                        <label for="imageLink"  placeholder="Link da Imagem"></label>
+                        <label for="imageLink"></label>
                         <input type="url" class="form-control" id="imageLink" placeholder="Digite o link da imagem" required>
                     </div>
                     <button type="submit" class="btn btn-primary btn-block">Adicionar Card</button>
                 </form>
             </div>
         </div>
-        <div class="row mt-5" id="cardContainer">
+        <div class="row mt-5 mb-5" id="cardContainer">
             <!-- Os cards serão adicionados aqui -->
         </div>
     </div>
+
+  <!-- Elemento fixo do WhatsApp -->
+  <div id="whatsapp-fixed">
+    <a href="https://api.whatsapp.com/send/?phone=98999707891&text&type=phone_number&app_absent=0" target="_blank" class="btn btn-success">
+        <i class="fab fa-whatsapp"></i> DESENVOLVEDOR
+    </a>
+</div>
 
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
