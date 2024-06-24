@@ -1,20 +1,242 @@
-body {
-    background-color: #f8f9fa;
-}
+        /* Top Bar Styles */
+        .top-bar {
+            width: 100%;
+            height: 26px;
+            background: linear-gradient(135deg, #6f42c1, #007bff, #6f42c1);
+            background-size: 600% 600%;
+            animation: gradient 10s ease infinite;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 0 20px;
+            /* position: fixed; */ /* Remova ou comente essa linha */
+            /* top: 0; */ /* Remova ou comente essa linha */
+            /* left: 0; */ /* Remova ou comente essa linha */
+            z-index: 1000;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
 
-.card {
-    height: 100%;
-    transition: transform 0.2s;
-}
+        .top-bar-logo {
+            height: 25px;
+            width: auto;
+        }
 
-.card:hover {
-    transform: scale(1.05);
-}
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
 
-.card-img-top {
-    height: 200px;
-    object-fit: cover;
-}
+        /* Adjusting container for top bar */
+        body {
+            padding-top: 50px;
+        }
+
+        /* Card Styles */
+
+        .card {
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.2s;
+            height: 300px; /* Ajuste a altura conforme necessário */
+        }
+        
+        .card-img-top {
+            height: 200px; /* Altura da imagem do card */
+            object-fit: cover;
+            transition: opacity 0.3s;
+        }
+        
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+    
+
+        .card-body {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 20px; /* Ajuste o padding interno conforme necessário */
+            transition: bottom 0.3s;
+        }
+        
+        .card-body h5 {
+            margin: 0;
+            font-size: 1.5rem; /* Ajuste o tamanho da fonte conforme necessário */
+        }
+        
+
+        .card-body a {
+            display: none;
+            margin-top: 10px;
+        }
+
+        .card:hover .card-body {
+            bottom: 0;
+        }
+
+        .card:hover .card-img-top {
+            opacity: 0.7;
+        }
+
+        .card:hover .card-body a {
+            display: block;
+        }
+
+        .card-img-top {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ajusta a imagem para cobrir todo o espaço do elemento */
+            transition: opacity 0.3s;
+        }
+        
+
+        .delete-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #dc3545;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            text-align: center;
+            line-height: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s ease;
+        }
+
+        .delete-btn:hover {
+            background: #c82333;
+        }
+
+        @media (max-width: 767px) {
+            .card-img-top {
+                height: 150px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .card-img-top {
+                height: 100px;
+            }
+        }
+
+        .btn-primary, .btn-primary:hover, .btn-primary:focus {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('https://static.vecteezy.com/ti/vetor-gratis/p1/6891094-abstrato-gradiente-fundo-azul-escuro-adequado-para-apresentacao-de-fundo-conceito-promocao-cartao-site-e-midia-social-vetor.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+        }
+
+        /* Footer styles */
+        footer {
+            position: relative;
+            padding: 10px 0;
+            border-top: 1px solid #dee2e6;
+            border-bottom: 1px solid #dee2e6;
+            background: linear-gradient(135deg, #6f42c1, #007bff, #6f42c1);
+            background-size: 600% 600%;
+            animation: gradient 10s ease infinite;
+        }
+
+        .footer-border {
+            border-left: 3px solid #6c757d;
+            border-right: none;
+            padding: 0 15px;
+            position: relative;
+        }
+
+        .footer-border::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -3px;
+            width: 6px;
+            height: 100%;
+            background-color: #6c757d;
+        }
+
+        .social-icons {
+            float: right;
+        }
+
+        .social-icons a {
+            color: #6c757d;
+            margin-left: 10px;
+            font-size: 20px;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Estilo básico para o footer */
+        footer {
+            /* position: fixed; */ /* Remova ou comente essa linha */
+            /* left: 0; */ /* Remova ou comente essa linha */
+            /* bottom: 0; */ /* Remova ou comente essa linha */
+            width: 100%;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            /* Mantenha o border-top e border-bottom se necessário */
+            border-top: 1px solid #dee2e6;
+            border-bottom: 1px solid #dee2e6;
+        }
+                
+
+
+/* aqui */
+
 
 .delete-btn {
     position: absolute;
@@ -31,74 +253,14 @@ body {
     cursor: pointer;
     font-size: 16px;
     transition: background 0.3s ease;
+    z-index: 1; /* Ajustado para estar sobre a imagem */
 }
 
-.delete-btn:hover {
-    background: #c82333;
-}
-
-@media (max-width: 767px) {
-    .card-img-top {
-        height: 150px;
-    }
-}
-
-@media (max-width: 576px) {
-    .card-img-top {
-        height: 100px;
-    }
-}
-
-.btn-primary, .btn-primary:hover, .btn-primary:focus {
-    background-color: #007bff;
-    border-color: #007bff;
-}
-
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-image: url('https://img.freepik.com/fotos-gratis/fundo-texturizado-abstrato_1258-30473.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-.content {
-    padding: 20px;
-}
-
-.card-title {
-    font-size: 1.25rem;
-}
-
-
-
-/* ----------------------------------------------------------------------------- */
-/* styles.css */
-body {
-    background-color: #f8f9fa;
-}
-
-.card {
-    height: 100%;
-    transition: transform 0.2s;
-}
-
-.card:hover {
-    transform: scale(1.05);
-}
-
-.card-img-top {
-    height: 200px;
-    object-fit: cover;
-}
-
-.delete-btn {
+.edit-btn {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    background: #dc3545;
+    top: 40px; /* Ajuste a posição vertical conforme necessário */
+    right: 10px; /* Ajuste a posição horizontal conforme necessário */
+    background: #007bff;
     color: white;
     border: none;
     border-radius: 50%;
@@ -107,63 +269,247 @@ body {
     text-align: center;
     line-height: 25px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 12px; /* Ajuste o tamanho da fonte conforme necessário */
     transition: background 0.3s ease;
+    z-index: 1; /* Ajustado para estar sobre a imagem */
 }
 
-.delete-btn:hover {
+.edit-btn:hover {
+    background: #0056b3; /* Cor alterada para efeito hover */
+}
+
+
+/* -------------------------------------- */
+.close-btn {
+    position: absolute;
+    top: -15px; /* Ajuste para alinhar verticalmente */
+    right: -15px; /* Ajuste para alinhar horizontalmente */
+    background: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+    font-size: 14px;
+    z-index: 2; /* Ajustado para estar sobre outros elementos */
+}
+
+.close-btn:hover {
     background: #c82333;
 }
 
-@media (max-width: 767px) {
-    .card-img-top {
-        height: 150px;
-    }
+
+
+/* footer */
+.social-icons a {
+    color: #fff; /* Cor dos ícones */
+    font-size: 24px; /* Tamanho dos ícones */
+    margin-left: 10px; /* Espaçamento entre os ícones */
 }
 
-@media (max-width: 576px) {
-    .card-img-top {
-        height: 100px;
-    }
+.social-icons a:hover {
+    color: #ccc; /* Cor ao passar o mouse sobre os ícones */
 }
 
-.btn-primary, .btn-primary:hover, .btn-primary:focus {
-    background-color: #007bff;
-    border-color: #007bff;
-}
 
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-image: url('https://img.freepik.com/fotos-gratis/fundo-texturizado-abstrato_1258-30473.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
+/* ------------------botão ADCIONE O SEU LINK------------------- */
 
-.content {
-    padding: 20px;
-}
 
-.card-title {
-    font-size: 1.25rem;
-}
-
-/* Estilo para o botão fixo do WhatsApp */
-#whatsapp-fixed {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1000;
-}
-
-#whatsapp-fixed .btn {
-    font-size: 18px;
+  .wrap {
+    height: 100%;
     display: flex;
     align-items: center;
+    justify-content: center;
+  }
+  
+  .button {
+    min-width: 240px;  /* Diminuir a largura mínima */
+    min-height: 45px;  /* Diminuir a altura mínima */
+    display: inline-flex;
+    font-family: 'Nunito', sans-serif;
+    font-size: 15px;  /* Diminuir o tamanho da fonte */
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 1.3px;
+    font-weight: 700;
+    color: #313133;
+    background: #4FD1C5;
+    background: linear-gradient(90deg, rgba(129,230,217,1) 0%, #000080 100%);
+    border: none;
+    border-radius: 1000px;
+    box-shadow: 12px 12px 24px #25258F;
+    transition: all 0.3s ease-in-out 0s;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    padding: 10px;
+  }
+  
+  .button i {
+    margin-right: 10px;  /* Espaçamento entre o ícone e o texto */
+  }
+  
+  .button::before {
+    content: '';
+    border-radius: 1000px;
+    min-width: calc(250px + 12px);  /* Ajustar largura mínima do pseudo-elemento */
+    min-height: calc(50px + 12px);  /* Ajustar altura mínima do pseudo-elemento */
+    border: 6px solid #00FFCB;
+    box-shadow: 0 0 60px #000080;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: all .3s ease-in-out 0s;
+  }
+  
+  .button:hover, 
+  .button:focus {
+    color: #313133;
+    transform: translateY(-6px);
+  }
+  
+  .button:hover::before, 
+  .button:focus::before {
+    opacity: 1;
+  }
+  
+  .button::after {
+    content: '';
+    width: 30px; height: 30px;
+    border-radius: 100%;
+    border: 6px solid #393994; /* cor da borda do efeito*/
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: ring 1.5s infinite;
+  }
+  
+  .button:hover::after, 
+  .button:focus::after {
+    animation: none;
+    display: none;
+  }
+  
+  @keyframes ring {
+    0% {
+      width: 30px;
+      height: 30px;
+      opacity: 1;
+    }
+    100% {
+      width: 300px;
+      height: 300px;
+      opacity: 0;
+    }
+  }
+  
+
+
+
+  /* --------------------------------------BOTAO VISITAR SITE-------------------------------- */
+  @import url('https://fonts.googleapis.com/css?family=Poppins:900i');
+
+* {
+  box-sizing: border-box;
 }
 
-#whatsapp-fixed .btn .fab {
-    margin-right: 8px;
+.wrapper {
+  display: flex;
+  justify-content: center;
 }
+
+.cta {
+    display: flex;
+    padding: 2px 7px; /* Diminui o tamanho do botão */
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px; /* Diminui o tamanho da fonte */
+    color: white;
+    background: linear-gradient(90deg, rgba(129,230,217,1) 0%, #000080 100%);
+    transition: 1s;
+    box-shadow: 6px 6px 0 black;
+    transform: skewX(-15deg);
+    border-radius: 1px; /* Arredonda mais as bordas */
+}
+
+.cta:focus {
+   outline: none; 
+}
+
+.cta:hover {
+    transition: 0.5s;
+    box-shadow: 10px 10px 0 #000080;
+}
+
+.cta span:nth-child(2) {
+    transition: 0.5s;
+    margin-right: 0px;
+}
+
+.cta:hover  span:nth-child(2) {
+    transition: 0.5s;
+    margin-right: 30px; /* Ajusta o espaço na animação */
+}
+
+span {
+    transform: skewX(15deg) 
+}
+
+span:nth-child(2) {
+    width: 20px;
+    margin-left: 20px; /* Ajusta o espaço entre o texto e a seta */
+    position: relative;
+    top: 12%;
+}
+
+/**************SVG****************/
+
+path.one {
+    transition: 0.4s;
+    transform: translateX(-60%);
+}
+
+path.two {
+    transition: 0.5s;
+    transform: translateX(-30%);
+}
+
+.cta:hover path.three {
+    animation: color_anim 1s infinite 0.2s;
+}
+
+.cta:hover path.one {
+    transform: translateX(0%);
+    animation: color_anim 1s infinite 0.6s;
+}
+
+.cta:hover path.two {
+    transform: translateX(0%);
+    animation: color_anim 1s infinite 0.4s;
+}
+
+/* SVG animations */
+
+@keyframes color_anim {
+    0% {
+        fill: white;
+    }
+    50% {
+        fill: #2196f3;
+    }
+    100% {
+        fill: white;
+    }
+}
+
+
+/* -----------------------------------botoes de compartinhar o link------------------------------ */

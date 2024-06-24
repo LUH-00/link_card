@@ -3,56 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ORGANIZADOR DE ABAS</title>
+    <title>Organizador de Abas</title>
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="STYLE/style.css">
-    <link rel="icon" href="img/ABAS.webp" type="image/x-icon">
-
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="IMG/link img.png" type="image/x-icon">
+    <link rel="stylesheet" href="STYLE/style.css">
 </head>
 <body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <img src="IMG/link preto imagem.webp" alt="Logo" class="top-bar-logo">
+    </div>
+
     <div class="container mt-5">
         <h1 class="text-center mb-4"></h1>
         <div class="row mb-4">
-            <div class="col text-center">
-                <button id="showFormButton" class="btn btn-primary">Adicionar Card</button>
+            
+                <!-- <button class="btn btn-primary">Adicione o seu link</button> -->
+                <div class="wrap col text-center">
+                    <button class="button" id="showFormButton" ><i class="fa-solid fa-link"></i> Adcione o seu link</button> 
             </div>
         </div>
         <div class="row" id="formRow" style="display: none;">
-            <div class="col-md-6 offset-md-3">
+            <div class="col-md-6 offset-md-3 position-relative">
                 <form id="cardForm">
+                    <button type="button" id="closeFormButton" class="close-btn" onclick="closeForm()"><i class="fas fa-times"></i></button>
                     <div class="form-group">
-                        <label for="cardName" place></label>
-                        <input type="text" class="form-control " id="cardName" placeholder="Digite o nome do card" required>
+                        <label for="cardName"><i class="fa-solid fa-signature"></i> Nome</label>
+                        <input type="text" class="form-control" id="cardName" placeholder="Adicione um nome para o link" required>
                     </div>
                     <div class="form-group">
-                        <label for="siteLink"></label>
-                        <input type="url" class="form-control" id="siteLink" placeholder="Digite o link do site" required>
+                        <label for="siteLink"><i class="fa-solid fa-link"></i> Link</label>
+                        <input type="url" class="form-control" id="siteLink" placeholder="Adicione o link" required>
                     </div>
                     <div class="form-group">
-                        <label for="imageLink"></label>
-                        <input type="url" class="form-control" id="imageLink" placeholder="Digite o link da imagem" required>
+                        <label for="imageLink"><i class="fa-regular fa-image"></i> Imagem</label>
+                        <input type="url" class="form-control" id="imageLink" placeholder="Adicione um link de uma imagem" required>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block">Adicionar Card</button>
+                    <button type="submit" id="addButton" class="btn btn-primary btn-block">Adicione ao organizador</button>
+                    <button type="button" id="cancelEditButton" class="btn btn-secondary btn-block mt-3" style="display: none;" onclick="cancelEdit()">Cancelar edição</button>
+                    <button type="button" id="saveChangesButton" class="btn btn-success btn-block mt-3" style="display: none;" onclick="saveChanges()">Salvar mudanças</button>
                 </form>
             </div>
         </div>
-        <div class="row mt-5 mb-5" id="cardContainer">
+        
+        <div class="row mt-5 mb-5" id="cardContainer">  
             <!-- Os cards serão adicionados aqui -->
         </div>
-    </div>
+    </div>  
 
-  <!-- Elemento fixo do WhatsApp -->
-  <div id="whatsapp-fixed">
-    <a href="https://api.whatsapp.com/send/?phone=98999707891&text&type=phone_number&app_absent=0" target="_blank" class="btn btn-success">
-        <i class="fab fa-whatsapp"></i> DESENVOLVEDOR
-    </a>
-</div>
+    <footer class="footer"> 
+        <div class="container">
+            <div class="row">       
+                <div class="col-md-6 footer-border">
+                    <p class="text-white">© 2024 Luan Vinicius. Todos os direitos reservados.</p>
+                </div>
+                <div class="col-md-6 social-icons"> 
+                    <!-- Ícones de redes sociais -->
+                    <a href="https://wa.me/seu-numero-de-whatsapp-aqui" target="_blank"><i class="fab fa-whatsapp col-md-6 pr-3">DESENVOLVEDOR</i></a>
+                    <!-- <a href="https://www.instagram.com/seu-usuario-instagram-aqui" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/seu-linkedin-aqui" target="_blank"><i class="fab fa-linkedin"></i></a>
+                     -->
+                    <!-- Restante do seu footer -->
+                    <button id="copyLinkButton" class="btn btn-primary"> <i class="fa-solid fa-lock"></i>Compartilhe</button>
+                    <button id="openLinkFieldButton" class="btn btn-primary ml-2"><i class="fa-solid fa-lock"></i>Abra</button>
+                    <div id="linkFieldContainer" style="display: none;">
+                        <input type="text" id="linkField" class="form-control mt-2" placeholder="Insira o link">
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </footer>
+    
+    
+    
 
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Adicionando Font Awesome script-->
+    <script src="https://kit.fontawesome.com/da0e349cce.js" crossorigin="anonymous"></script>
     <script src="SCRIPT/script.js"></script>
 </body>
 </html>
