@@ -351,3 +351,48 @@ document.getElementById('linkField').addEventListener('change', function() {
         window.location.href = link;
     }
 });
+
+
+
+// botão compartilhar
+
+function generateShareableLink() {
+    const cards = JSON.parse(localStorage.getItem('cards')) || [];
+    const dataToShare = encodeURIComponent(JSON.stringify(cards));
+    const currentURL = window.location.href.split('?')[0]; // Remove os parâmetros atuais, se houver
+    const shareableLink = `${currentURL}?data=${dataToShare}`;
+    return shareableLink;
+}
+
+// Evento para botão de compartilhar
+document.getElementById('copyLinkButton').addEventListener('click', function() {
+    const shareLink = generateShareableLink();
+    navigator.clipboard.writeText(shareLink)
+        .then(() => {
+            alert('Link copiado com sucesso!');
+        })
+        .catch(err => {
+            console.error('Erro ao copiar link: ', err);
+            alert('Não foi possível copiar o link. Por favor, copie manualmente.');
+        });
+});
+
+
+// Função para carregar cards de um link compartilhado
+function loadSharedCards() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const sharedData = urlParams.get('data');
+
+    if (sharedData) {
+        const cards = JSON.parse(decodeURIComponent(sharedData));
+        localStorage.setItem('cards', JSON.stringify(cards));
+        loadCards(); // Carrega os cards na página
+    }
+}
+
+// Carrega os cards quando a página é carregada
+window.onload = function() {
+    loadSharedCards();
+    loadCards();
+};
+
