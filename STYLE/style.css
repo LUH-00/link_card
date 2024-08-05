@@ -511,5 +511,7 @@ path.two {
     }
 }
 
-
-/* -----------------------------------botoes de compartinhar o link------------------------------ */
+/* código novo */
+#linkFieldContainer {
+    display: none;
+}

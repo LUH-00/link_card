@@ -10,7 +10,7 @@
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="icon" href="IMG/link img.png" type="image/x-icon">
-    <link rel="stylesheet" href="STYLE/style.css">
+   
 </head>
 <body>
     <!-- Top Bar -->
@@ -19,12 +19,9 @@
     </div>
 
     <div class="container mt-5">
-        <h1 class="text-center mb-4"></h1>
         <div class="row mb-4">
-            
-                <!-- <button class="btn btn-primary">Adicione o seu link</button> -->
-                <div class="wrap col text-center">
-                    <button class="button" id="showFormButton" ><i class="fa-solid fa-link"></i> Adicione o seu link</button> 
+            <div class="wrap col text-center">
+                <button class="button" id="showFormButton"><i class="fa-solid fa-link"></i> Adicione o seu link</button>
             </div>
         </div>
         <div class="row" id="formRow" style="display: none;">
@@ -49,47 +46,38 @@
                 </form>
             </div>
         </div>
-        
-        <div class="row mt-5 mb-5" id="cardContainer">  
+        <div class="row mt-5 mb-5" id="cardContainer">
             <!-- Os cards serão adicionados aqui -->
         </div>
-    </div>  
+    </div>
 
-    <footer class="footer"> 
+    <footer class="footer">
         <div class="container">
-            <div class="row">       
+            <div class="row">
                 <div class="col-md-6 footer-border">
                     <p class="text-white">© 2024 Luan Vinicius. Todos os direitos reservados.</p>
                 </div>
-                <div class="col-md-6 social-icons"> 
-                    <!-- Ícones de redes sociais -->
+                <div class="col-md-6 social-icons">
                     <a href="https://api.whatsapp.com/send/?phone=98999707891&text&type=phone_number&app_absent=0" target="_blank"><i class="fab fa-whatsapp col-md-6 pr-3">DESENVOLVEDOR</i></a>
-                    <!-- <a href="https://www.instagram.com/seu-usuario-instagram-aqui" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.linkedin.com/in/seu-linkedin-aqui" target="_blank"><i class="fab fa-linkedin"></i></a>
-                     -->
-                    <!-- Restante do seu footer -->
-                    <button id="copyLinkButton" class="btn btn-primary"> <i class="fa-solid fa-lock"></i>Compartilhe</button>
-                    <button id="openLinkFieldButton" class="btn btn-primary ml-2"><i class="fa-solid fa-lock"></i>Abra</button>
-                    <div id="linkFieldContainer" style="display: none;">
+                    <button id="copyLinkButton" class="btn btn-primary"><i class="fa-solid fa-share"></i> Compartilhe</button>
+                    <button id="openLinkFieldButton" class="btn btn-primary ml-2"><i class="fa-solid fa-plus"></i> Adicione</button>
+                    <div id="linkFieldContainer">
                         <input type="text" id="linkField" class="form-control mt-2" placeholder="Insira o link">
-                        <!-- <input type="text" id="linkField" class="form-control mt-2" placeholder="Insira o link" value="${generateShareableLink()}" readonly> -->
-
+                        <button id="loadCardsButton" class="btn btn-primary mt-2">Adicionar</button>
                     </div>
                 </div>
-                
             </div>
         </div>
     </footer>
-    
-    
-    
 
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <!-- Adicionando Font Awesome script-->
+    <!-- Font Awesome script -->
     <script src="https://kit.fontawesome.com/da0e349cce.js" crossorigin="anonymous"></script>
     <script src="SCRIPT/script.js"></script>
+  
 </body>
 </html>
+
