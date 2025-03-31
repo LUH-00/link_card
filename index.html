@@ -1,83 +1,119 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Organizador de Abas</title>
+    <title>ORGANIZADOR DE ABAS</title>
     <!-- Bootstrap CSS -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="STYLE/style.css">
-    <!-- Font Awesome CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts - Orbitron (fonte futurista) -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="icon" href="IMG/link img.png" type="image/x-icon">
+    <link rel="stylesheet" href="STYLE/style.css">
    
 </head>
 <body>
-    <!-- Top Bar -->
+    <!-- Efeito de Partículas -->
+    <div class="particles" id="particles"></div>
+    
+    <!-- Top Bar Futurista -->
     <div class="top-bar">
-        <img src="IMG/link preto imagem.webp" alt="Logo" class="top-bar-logo">
+        <img src="IMG/link preto imagem.webp" alt="NexusTab Logo" class="top-bar-logo">
+        <div class="d-flex align-items-center">
+            <span class="me-3" style="font-family: 'Orbitron', sans-serif;">LUAN VINICIUS</span>
+            <div class="pulse-dot" style="width: 10px; height: 10px; background: var(--primary); border-radius: 50%; box-shadow: 0 0 10px var(--primary);"></div>
+        </div>
     </div>
 
-    <div class="container mt-5">
-        <div class="row mb-4">
-            <div class="wrap col text-center">
-                <button class="button" id="showFormButton"><i class="fa-solid fa-link"></i> Adicione o seu link</button>
+    <div class="main-container">
+        <div class="row mb-5">
+            <div class="col-12 text-center">
+                <button class="nexus-btn" id="showFormButton">
+                    <i class="fas fa-plus"></i> ADICIONAR LINK
+                </button>
             </div>
         </div>
+        
         <div class="row" id="formRow" style="display: none;">
-            <div class="col-md-6 offset-md-3 position-relative">
-                <form id="cardForm">
-                    <button type="button" id="closeFormButton" class="close-btn" onclick="closeForm()"><i class="fas fa-times"></i></button>
-                    <div class="form-group">
-                        <label for="cardName"><i class="fa-solid fa-signature"></i> Nome</label>
-                        <input type="text" class="form-control" id="cardName" placeholder="Adicione um nome para o link" required>
+            <div class="col-lg-6 offset-lg-3">
+                <form id="cardForm" class="nexus-form position-relative">
+                    <button type="button" id="closeFormButton" class="close-btn" onclick="closeForm()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    <div class="form-group mb-4">
+                        <label for="cardName" class="form-label">
+                            <i class="fas fa-signature me-2"></i>NOME
+                        </label>
+                        <input type="text" class="form-control" id="cardName" placeholder="Nome para o link" required>
                     </div>
-                    <div class="form-group">
-                        <label for="siteLink"><i class="fa-solid fa-link"></i> Link</label>
-                        <input type="url" class="form-control" id="siteLink" placeholder="Adicione o link" required>
+                    <div class="form-group mb-4">
+                        <label for="siteLink" class="form-label">
+                            <i class="fas fa-link me-2"></i>LINK
+                        </label>
+                        <input type="url" class="form-control" id="siteLink" placeholder="URL do site" required>
                     </div>
-                    <div class="form-group">
-                        <label for="imageLink"><i class="fa-regular fa-image"></i> Imagem</label>
-                        <input type="url" class="form-control" id="imageLink" placeholder="Adicione um link de uma imagem" required>
+                    <div class="form-group mb-4">
+                        <label for="imageLink" class="form-label">
+                            <i class="fas fa-image me-2"></i>IMAGEM
+                        </label>
+                        <input type="url" class="form-control" id="imageLink" placeholder="URL da imagem" required>
                     </div>
-                    <button type="submit" id="addButton" class="btn btn-primary btn-block">Adicione ao organizador</button>
-                    <button type="button" id="cancelEditButton" class="btn btn-secondary btn-block mt-3" style="display: none;" onclick="cancelEdit()">Cancelar edição</button>
-                    <button type="button" id="saveChangesButton" class="btn btn-success btn-block mt-3" style="display: none;" onclick="saveChanges()">Salvar mudanças</button>
+                    <div class="d-grid gap-2">
+                        <button type="submit" id="addButton" class="nexus-btn">
+                            <i class="fas fa-save"></i> SALVAR LINK
+                        </button>
+                        <button type="button" id="cancelEditButton" class="btn btn-outline-primary btn-block mt-3" style="display: none; border-radius: 50px; color: var(--primary); border-color: var(--primary);" onclick="cancelEdit()">
+                            CANCELAR
+                        </button>
+                        <button type="button" id="saveChangesButton" class="nexus-btn btn-block mt-3" style="display: none;" onclick="saveChanges()">
+                            <i class="fas fa-check"></i> CONFIRMAR EDIÇÃO
+                        </button>
+                    </div>
                 </form>
             </div>
         </div>
-        <div class="row mt-5 mb-5" id="cardContainer">
-            <!-- Os cards serão adicionados aqui -->
+        
+        <div class="row mt-5" id="cardContainer">
+            <!-- Cards serão adicionados aqui dinamicamente -->
         </div>
     </div>
 
-    <footer class="footer">
+    <footer class="nexus-footer mt-5">
         <div class="container">
-            <div class="row">
-                <div class="col-md-6 footer-border">
-                    <p class="text-white">© 2024 Luan Vinicius. Todos os direitos reservados.</p>
+            <div class="row align-items-center">
+                <div class="col-md-6 mb-3 mb-md-0">
+                    <p class="footer-text mb-0">
+                        <i class="far fa-copyright me-2"></i>2025 LUAN VINICIUS. TODOS OS DIREITOS RESERVADOS.
+                    </p>
                 </div>
-                <div class="col-md-6 social-icons">
-                    <a href="https://api.whatsapp.com/send/?phone=98999707891&text&type=phone_number&app_absent=0" target="_blank"><i class="fab fa-whatsapp col-md-6 pr-3">DESENVOLVEDOR</i></a>
-                    <button id="copyLinkButton" class="btn btn-primary"><i class="fa-solid fa-share"></i> Compartilhe</button>
-                    <button id="openLinkFieldButton" class="btn btn-primary ml-2"><i class="fa-solid fa-plus"></i> Adicione</button>
-                    <div id="linkFieldContainer">
-                        <input type="text" id="linkField" class="form-control mt-2" placeholder="Insira o link">
-                        <button id="loadCardsButton" class="btn btn-primary mt-2">Adicionar</button>
+                <div class="col-md-6 text-md-end">
+                    <div id="linkFieldContainer" class="mb-3" style="display: none;">
+                        <div class="input-group">
+                            <input type="text" id="linkField" class="form-control" placeholder="Cole o link compartilhado">
+                            <button id="loadCardsButton" class="btn btn-primary" style="background: var(--primary); border: none;">
+                                <i class="fas fa-cloud-download-alt"></i>
+                            </button>
+                        </div>
                     </div>
+                    <a href="https://api.whatsapp.com/send/?phone=98999707891&text&type=phone_number&app_absent=0" target="_blank" class="social-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <button id="copyLinkButton" class="social-icon" style="background: none; border: none;">
+                        <i class="fas fa-share"></i>
+                    </button>
+                    <button id="openLinkFieldButton" class="social-icon" style="background: none; border: none;">
+                        <i class="fas fa-plus"></i>
+                    </button>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Bootstrap JS and dependencies -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <!-- Font Awesome script -->
-    <script src="https://kit.fontawesome.com/da0e349cce.js" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="SCRIPT/script.js"></script>
-  
+    
 </body>
 </html>
-
